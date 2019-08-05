@@ -1,0 +1,114 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Order Responses</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+    <ion-grid style="background: #F29D0F;">
+        <ion-toolbar style=" --background: #F29D0F;"> 
+            <ion-buttons slot="start">
+              <ion-back-button defaultHref="/menu"></ion-back-button>
+            </ion-buttons>
+            <ion-title>Order Responses</ion-title>
+        </ion-toolbar>
+      </ion-grid>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let response of orderResponses">
+        <ion-card-header>
+          <div style="cursor: pointer;" (click)="getResponseDetails(response.ID)">
+              <ion-grid>
+                  <ion-row>
+                    <ion-col size="6">
+                      <ion-card-subtitle> تليفون: {{response.Store_Phone}}</ion-card-subtitle>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-card-title>{{response.Store_Name}}</ion-card-title>                 
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col size="6">
+                          <ion-card-subtitle>اجمالى الفاتورة: {{response.TotalPrice + response.Delivery_Cost}} ج.م</ion-card-subtitle>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-card-subtitle>وقت التوصيل: {{response.Delivery_Time}} دقيقة</ion-card-subtitle>
+                        </ion-col>
+                  </ion-row>
+                </ion-grid>
+          </div>
+        </ion-card-header>
+      
+        <ion-card-content *ngIf="resID == response.ID">
+            <ion-list>
+                <ion-row style="border-bottom: groove; background: #88001b; color:white;">
+                    <ion-col col-3 >
+                    <div style="width: 140px" >الصنف </div>
+                  </ion-col>
+                  <ion-col col-3>
+                    <ion-label >الوزن</ion-label>
+                  </ion-col>
+                  <ion-col col-3>
+                    <ion-label >الماركة</ion-label>
+                  </ion-col>
+                  <ion-col col-3>
+                      <ion-label >السعر</ion-label>
+                    </ion-col>
+                  </ion-row>
+              <ion-item *ngFor="let detail of responseDetails" lines="inset">
+                <ion-row style="border-bottom: groove;">
+                  <ion-col size="6" >
+                   <div style="width: 100px;">{{ detail.Item_Name }}</div> 
+                </ion-col>
+                <ion-col col-3>
+                  <div >
+                    <!-- <ion-button shape="round" (click)="decreaseProductCount(item)">-</ion-button> -->
+                    {{detail.Item_Weight}} 
+                  <!-- <ion-button shape="round" (click)="incrementProductCount(item)">+</ion-button> -->
+                  </div>
+                </ion-col>
+                <ion-col col-3> 
+                  <div>{{detail.Item_Brand}}</div>
+                </ion-col>
+                <ion-col col-2>
+                  <div>
+                    {{detail.Price}}
+                  </div>
+                </ion-col>
+                </ion-row>
+              </ion-item>
+              <div style="text-align: center">خدمة التوصيل: {{response.Delivery_Cost}} ج.م</div>
+            </ion-list>
+        </ion-card-content>
+      </ion-card>
+
+
+  <!-- <ion-item>
+    <ion-card *ngFor="let item of items">
+      <ion-card-header (click)="expandItem(item)">
+        <ion-card-title>Shipping Address</ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <app-expandable expandHeight="auto" [expanded]="item.expanded">
+          <ion-item>
+            <ion-input  name="Zone" type="text" placeholder="Zone" required ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input name="Street" type="text" placeholder="Street" required ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input name="Building" type="text" placeholder="Building" required ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input name="FloorNum" type="text" placeholder="Floor Number" required ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input name="FlatNum" type="password" placeholder="Flat Number" required ></ion-input>
+          </ion-item>
+        </app-expandable>
+      </ion-card-content>
+    </ion-card>
+  </ion-item> -->
+</ion-content>

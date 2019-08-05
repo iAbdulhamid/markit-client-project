@@ -1,0 +1,62 @@
+
+<ion-app>
+  <!-- <app-navbar></app-navbar> -->
+  <ion-menu side="start" menuId="first">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Start Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    
+    <ion-menu side="start" menuId="custom" class="my-custom-menu" >
+      <ion-header>
+        <ion-toolbar style="--background:	#F29D0F">
+          <ion-title style=" padding-left:  80px">
+              <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" width="50" class="rounded-circle" alt="Cinque Terre"/>
+              <p style='color:honeydew; font-size: 14px'>{{userEmailForSideMenu}}</p>
+            </ion-title>
+        </ion-toolbar>
+      </ion-header> 
+      <ion-content>
+        <ion-list>
+          <ion-item><ion-icon name="home"></ion-icon>&nbsp;&nbsp;  <a href="#" style="text-decoration: none" [routerLink]="['/start']" routerLinkActive="router-link-active" >Home</a></ion-item>
+          <ion-item><ion-icon name="person"></ion-icon>&nbsp;&nbsp;  <a href="#" style="text-decoration: none" [routerLink]="['/myprofile']" routerLinkActive="router-link-active" >My Profile</a></ion-item>
+          <ion-item><ion-icon name="person"></ion-icon>&nbsp;&nbsp;  <a href="#" style="text-decoration: none" [routerLink]="['/order-responses']" routerLinkActive="router-link-active" >My Responces</a></ion-item>         
+          <ion-item><ion-icon name="log-out"></ion-icon>&nbsp;&nbsp; <a href="#" style="text-decoration: none">Logout</a> </ion-item>
+          
+        </ion-list> 
+      </ion-content>
+    </ion-menu>
+    
+    <ion-menu side="end" type="push">
+      <ion-header>
+        <ion-toolbar color="danger">
+          <ion-title>End Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+          <ion-item>Menu Item</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  
+
+  <ion-router-outlet main></ion-router-outlet>
+  <!-- <ion-router-outlet></ion-router-outlet> -->
+</ion-app> 
+      

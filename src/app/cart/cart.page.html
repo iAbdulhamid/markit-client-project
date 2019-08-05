@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-grid style="background: #F29D0F;">
+      <ion-toolbar style=" --background: #F29D0F;"> 
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/menu"></ion-back-button>
+          </ion-buttons>
+          <ion-title>My Cart</ion-title>
+      </ion-toolbar>
+    </ion-grid>
+  </ion-header>
+   
+  <ion-content>
+    <ion-list>
+        <ion-row style="border-bottom: groove; background: #88001b; color:white;">
+            <ion-col col-3 >
+            <div style="width: 140px" >الصنف</div>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label >الكمية</ion-label>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label >الصورة</ion-label>
+          </ion-col>
+          <ion-col col-3>
+              <ion-label >حذف</ion-label>
+            </ion-col>
+          </ion-row>
+      <ion-item *ngFor="let item of selectedItems" lines="inset">
+        <ion-row style="border-bottom: groove;">
+          <ion-col col-4 >
+           <div style="width: 100px;">{{ item.Item_Name }}</div> 
+        </ion-col>
+        <ion-col col-3>
+          <div style="width: 100px">
+            <ion-button shape="round" (click)="decreaseProductCount(item)">-</ion-button>
+            {{item.quantity}} 
+          <ion-button shape="round" (click)="incrementProductCount(item)">+</ion-button>
+          </div>
+        </ion-col>
+        <ion-col col-3> 
+          <div style="width: 45x"><img src="assets/Items/{{item.img}}" width="35px" height="40px"></div>
+        </ion-col>
+        <ion-col col-2>
+          <div (click)=removeItem(item)>
+            <ion-icon name="trash" style="font-size: 28px; color: #88001b; margin-left: 20%"></ion-icon>
+          </div>
+        </ion-col>
+          <!-- <ion-col>
+          <ion-label >{{ item.price | currency:'USD':'symbol' }}</ion-label>
+        </ion-col> -->
+        </ion-row>
+      </ion-item>
+      <!-- <ion-item>
+        Total: <span slot="end">{{ total | currency:'USD':'symbol' }}</span>
+      </ion-item> -->
+    </ion-list>
+    <div>
+      <label for="">Notes:</label>
+      <textarea name="" id="" cols="30" rows="3" placeholder="Type your notes here..."></textarea>
+      <br/>
+      <label for="">Promo Code:</label>
+      <input type="text" name="" id="" [(ngModel)]="odjpromocode.Code">
+    </div>
+    <br/>
+    <br/>
+    <div class='contento' style='text-align: center'>
+      <ion-button style="width: 170px; font-size: 14px;--background: #88001b; color: honeydew; font-weight: bold; --border-radius: 30px" (click)=placeOrder()>Place Order&nbsp; <ion-icon name="paper-plane" style="font-size:25px"></ion-icon></ion-button>
+      <div style='clear: both;'></div>
+  </div>
+  </ion-content>

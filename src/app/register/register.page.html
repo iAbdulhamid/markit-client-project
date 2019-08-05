@@ -1,0 +1,70 @@
+
+<ion-content >
+  <form   #form="ngForm" (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Register</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input  name="name" type="text" placeholder="Name" required [(ngModel)]="registeredUser.Client_Name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="your@email.com" required [(ngModel)]="registeredUser.Client_Email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="phone" type="phone" placeholder="+2010xxxxxxxx" required [(ngModel)]="registeredUser.Client_Phone"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="username" type="text" placeholder="Your name" required [(ngModel)]="registeredUser.Client_UserName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Password" required [(ngModel)]="registeredUser.Client_Password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="confirm" type="password" placeholder="Password again" required></ion-input>
+            </ion-item>
+            <!-- collapse Card -->
+            <ion-item>
+              <ion-card *ngFor="let item of items">
+                <ion-card-header (click)="expandItem(item)">
+                  <ion-card-title>Shipping Address</ion-card-title>
+                </ion-card-header>
+            
+                <ion-card-content>
+                  <app-expandable expandHeight="auto" [expanded]="item.expanded">
+                    <ion-item>
+                      <ion-input  name="Zone" type="text" placeholder="Zone" required [(ngModel)]="registeredUser.ShippingAddressesList[0].Zone"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input name="Street" type="text" placeholder="Street" required [(ngModel)]="registeredUser.ShippingAddressesList[0].Street"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input name="Building" type="text" placeholder="Building" required [(ngModel)]="registeredUser.ShippingAddressesList[0].Building"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input name="FloorNum" type="text" placeholder="Floor Number" required [(ngModel)]="registeredUser.ShippingAddressesList[0].FloorNum"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input name="FlatNum" type="password" placeholder="Flat Number" required [(ngModel)]="registeredUser.ShippingAddressesList[0].FlatNum"></ion-input>
+                    </ion-item>
+                  </app-expandable>
+                </ion-card-content>
+              </ion-card>
+            </ion-item>
+
+
+
+ 
+          </div>
+          <div padding>
+            <ion-button  size="" type="submit" [disabled]="form.invalid" expand="block" (click)="register()">Register</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+

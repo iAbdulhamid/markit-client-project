@@ -1,0 +1,119 @@
+<ion-header>
+    <ion-grid style="background: #F29D0F;">
+        <ion-toolbar style=" --background: #F29D0F;"> 
+            <ion-buttons slot="start">
+              <ion-back-button defaultHref="/menu"></ion-back-button>
+            </ion-buttons>
+            <ion-title>My Profile</ion-title>
+        </ion-toolbar>
+      </ion-grid>
+</ion-header>
+
+<ion-content>
+    <ion-grid *ngIf="isProfileChanged === false">
+    <ion-item>
+      <ion-label position="fixed">Name</ion-label>
+      <ion-input  readonly=true [(ngModel)]="client.Client_Name"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="fixed">Email</ion-label>
+        <ion-input readonly=true  [(ngModel)]="client.Client_Email"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+          <ion-label position="fixed">Phone</ion-label>
+          <ion-input readonly=true  [(ngModel)]="client.Client_Phone"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label position="fixed">UserName</ion-label>
+            <ion-input readonly=true  [(ngModel)]="client.Client_UserName"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+              <ion-label position="fixed">Password</ion-label>
+              <ion-input readonly=true   [(ngModel)]="updatedUser.Client_Password"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label position="fixed">address</ion-label>
+                
+              </ion-item>
+              <div style="margin-left: 15%">
+              <ion-item>
+                  <ion-label position="fixed">Zone</ion-label>
+                  <ion-input readonly=true   [(ngModel)]="client.Zone"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="fixed">Street</ion-label>
+                    <ion-input readonly=true    [(ngModel)]="client.Street"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="fixed">Building</ion-label>
+                      <ion-input readonly=true   [(ngModel)]="client.Building"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="fixed">FloorNum</ion-label>
+                        <ion-input readonly=true   [(ngModel)]="client.FloorNum"></ion-input>
+                      </ion-item>
+                    </div>
+                    <!-- <ion-button disabled = ture *ngIf="isProfileChanged === false" style="width: 190px; margin:10%; margin-left: 25%;font-size: 14px;--background: #88001b; color: honeydew; font-weight: bold; --border-radius: 30px" [routerLink]="['/menu']" routerLinkActive="router-link-active" ><ion-icon name="done-all"></ion-icon>&nbsp;Save Changes?</ion-button> -->
+                    <ion-button (click)=profileChanged()  style="width: 190px; margin:10%; margin-left: 25%;font-size: 14px;--background: #88001b; color: honeydew; font-weight: bold; --border-radius: 30px" ><ion-icon name="done-all"></ion-icon>&nbsp;update</ion-button>
+    </ion-grid>
+
+
+    <ion-grid *ngIf="isProfileChanged === true">
+        <ion-item>
+          <ion-label position="fixed">Name</ion-label>
+          <ion-input (change)= enableSave()  [(ngModel)]="client.Client_Name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed">Email</ion-label>
+            <ion-input (change)= enableSave()  [(ngModel)]="client.Client_Email"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+              <ion-label position="fixed">Phone</ion-label>
+              <ion-input (change)= enableSave()  [(ngModel)]="client.Client_Phone"></ion-input>
+            </ion-item>
+        
+            <ion-item>
+                <ion-label position="fixed">UserName</ion-label>
+                <ion-input (change)= enableSave()  [(ngModel)]="client.Client_UserName"></ion-input>
+              </ion-item>
+        
+              <ion-item>
+                  <ion-label position="fixed">Password</ion-label>
+                  <ion-input (change)= enableSave()  [(ngModel)]="updatedUser.Client_Password"></ion-input>
+                </ion-item>
+        
+                <ion-item>
+                    <ion-label position="fixed">address</ion-label>
+                    
+                  </ion-item>
+                  <div style="margin-left: 15%">
+                  <ion-item>
+                      <ion-label position="fixed">Zone</ion-label>
+                      <ion-input (change)= enableSave()  [(ngModel)]="client.Zone"></ion-input>
+                    </ion-item>
+    
+                    <ion-item>
+                        <ion-label position="fixed">Street</ion-label>
+                        <ion-input (change)=enableSave()   [(ngModel)]="client.Street"></ion-input>
+                      </ion-item>
+                      <ion-item>
+                          <ion-label position="fixed">Building</ion-label>
+                          <ion-input (change)= enableSave()  [(ngModel)]="client.Building"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label position="fixed">FloorNum</ion-label>
+                            <ion-input (change)= enableSave()  [(ngModel)]="client.FloorNum"></ion-input>
+                          </ion-item>
+                        </div>
+                   <!-- <ion-button   style="width: 190px; margin:10%; margin-left: 25%;font-size: 14px;--background: #88001b; color: honeydew; font-weight: bold; --border-radius: 30px" [routerLink]="['/menu']" routerLinkActive="router-link-active" ><ion-icon name="done-all"></ion-icon>&nbsp;Save ?</ion-button> -->
+                   <ion-button disabled = ture *ngIf="isEnableSave === false" style="width: 190px; margin:10%; margin-left: 25%;font-size: 14px;--background: #88001b; color: honeydew; font-weight: bold; --border-radius: 30px" [routerLink]="['/menu']" routerLinkActive="router-link-active" ><ion-icon name="done-all"></ion-icon>&nbsp;Save Changes?</ion-button>
+                   <ion-button  (click)=update() *ngIf="isEnableSave === true" style="width: 190px; margin:10%; margin-left: 25%;font-size: 14px;--background: #88001b; color: honeydew; font-weight: bold; --border-radius: 30px" [routerLink]="['/menu']" routerLinkActive="router-link-active" ><ion-icon name="done-all"></ion-icon>&nbsp;Save Changes?</ion-button>
+
+ </ion-grid>
+</ion-content>

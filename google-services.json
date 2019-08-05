@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "878628771415",
+    "firebase_url": "https://markit-39310.firebaseio.com",
+    "project_id": "markit-39310",
+    "storage_bucket": "markit-39310.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878628771415:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878628771415-q0krcd6r6sl700und2ld8d7707j2qa6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz8116YcTrn9BMyl5uWy3hjWoxyr7L2OU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878628771415-q0krcd6r6sl700und2ld8d7707j2qa6p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

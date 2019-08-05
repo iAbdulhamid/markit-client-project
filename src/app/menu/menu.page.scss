@@ -1,0 +1,46 @@
+ion-header ion-toolbar:first-child {
+    padding-top: 0;
+}
+
+.toolbar-container {
+    background: #F29D0F;
+}
+.nots{
+    --background: 	#88001b;
+    --width: 20px 
+}
+.cart{
+    --background: 	#F29D0F;
+}
+.items {
+    --background: 	#88001b;
+}
+ion-tab-bar{
+    overflow-x: scroll;
+    justify-content: left;
+}
+.card
+{
+    position: relative;
+}
+
+.offer{
+    position: absolute;
+    top: 0px;
+    right: 0;
+    background: #88001b;
+    opacity: .8;
+    color: white;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding:3%;
+    -webkit-clip-path: circle(70% at 70% 20%);
+    clip-path: circle(70% at 70% 20%);
+}
+
+// #searchInput{
+//     display: none;
+
+// }
+
